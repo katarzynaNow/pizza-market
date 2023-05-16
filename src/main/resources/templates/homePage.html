@@ -8,14 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <nav id="page-nav">
-        <div class="container" id="nav-row">
-            <a id="logo" th:href="@{/}">Pizza Market</a>
-            <a class="nav-item" href="">Menu</a>
-            <a class="nav-item" href="">Dostawa</a>
-            <a class="nav-item" href="">Resto</a>
-        </div>
-    </nav>
+    <nav th:replace="~{fragments/navigation :: nav}"></nav>
     <section id="home-page-section">
         <div class="container">
             <div>

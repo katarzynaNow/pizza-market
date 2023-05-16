@@ -1,0 +1,44 @@
+:root {
+    --primary: #222222;
+    --secondary: #1E87F0;
+    --warning: #F0506E;
+    --white: #FFFFFF;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+html, body {
+    margin: 0;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+/*---------------------*/
+
+@media only screen and (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        width: 50%;
+    }
+}

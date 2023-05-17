@@ -99,3 +99,11 @@ a {
 #home-page-section .container div {
     margin: 50px 0;
 }
+
+#menu-table {
+    width: 100%;
+}
+
+#table-price-column {
+    text-align: right;
+}

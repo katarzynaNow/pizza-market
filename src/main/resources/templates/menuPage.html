@@ -11,7 +11,7 @@
                     </td>
                     <td id="table-price-column">
                         <h3 th:text="|${pizza.price}zł|"></h3>
-                        <a class="btn btn-sm" href="">Zamów</a>
+                        <a class="btn btn-sm" th:href="@{/order/{pizzaId}(pizzaId=${pizza.id})}">Zamów</a>
                     </td>
                 </tr>
             </table>

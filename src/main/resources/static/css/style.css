@@ -107,3 +107,15 @@ a {
 #table-price-column {
     text-align: right;
 }
+
+.input {
+    border: 1px solid var(--primary);
+    padding: 15px;
+    width: 100%;
+}
+
+#order-content form div {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}

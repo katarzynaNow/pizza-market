@@ -10,15 +10,11 @@ import java.math.BigDecimal;
 @Entity
 @Table(name="pizzas")
 public class PizzaEntity {
-
     @Id
     @GeneratedValue
     private Long id;
-
     private String name;
-
     private BigDecimal price;
-
     private String ingredients;
 
     public Long getId() {

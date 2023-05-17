@@ -76,7 +76,7 @@ a {
     font-size: 2em;
 }
 
-#home-page-text {
+.text {
     font-weight: 200;
 }
 
@@ -122,4 +122,10 @@ a {
 
 #confirm-text {
     font-size: 3em;
+}
+
+#opinions form div {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
 }

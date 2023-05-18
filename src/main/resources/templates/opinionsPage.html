@@ -6,28 +6,22 @@
     <h1>Opinie</h1>
 
     <table>
-      <tr>
+      <tr th:each="opinion : ${opinions}">
         <td>
-          <h3>Anna Kowalska</h3>
-          <p class="text">Pizzeria z najlepszymi pizzami, jakie jadłam! Ciasto cienkie a składniki bardzo świeze i aromatyczne. Polecam każdemu!</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h3>Karolina Wisniewska</h3>
-          <p class="text">Pizza z tej pizzerii to po prostu mistrzostwo! Duży wybór smaków, szybka obsługa i bardzo przystępne ceny. Polecam wszytskim którzy lubia dobrze zjeść!</p>
+          <h3 th:text="${opinion.authorName}"></h3>
+          <p class="text" th:text="${opinion.opinionContent}"></p>
         </td>
       </tr>
     </table>
 
     <h1>Dodaj nową opinię</h1>
 
-    <form method="post">
+    <form method="post" th:object="${opinionModel}">
       <div>
-        <input type="text" placeholder="Nazwa" class="input">
+        <input type="text" th:field="*{authorName}" placeholder="Nazwa" class="input">
       </div>
       <div>
-        <input type="text" placeholder="Twoja opinia..." class="input">
+        <input type="text" th:field="*{opinionContent}" placeholder="Twoja opinia..." class="input">
       </div>
       <div>
         <button class="btn">Dodaj</button>

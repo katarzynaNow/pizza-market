@@ -3,8 +3,8 @@
       th:replace="~{fragments/layout :: template (~{:: #opinions})}">
 <section id="opinions">
   <div class="container">
-    <h1>Opinie</h1>
 
+    <h1>Opinie</h1>
     <table>
       <tr th:each="opinion : ${opinions}">
         <td>
@@ -15,7 +15,6 @@
     </table>
 
     <h1>Dodaj nową opinię</h1>
-
     <form method="post" th:object="${opinionModel}">
       <div>
         <input type="text" th:field="*{authorName}" placeholder="Nazwa" class="input">

@@ -38,4 +38,9 @@ public class PizzaService {
         final var entity = PizzaMapper.toEntity(pizzaModel);
         pizzaRepository.save(entity);
     }
+
+    @Transactional
+    public void deleteById(Long pizzaId) {
+        pizzaRepository.deleteById(pizzaId);
+    }
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: template (~{:: #delivery-content})}">
+
+<section id="delivery-content">
+  <div class="container">
+
+    <h1>Dostawa</h1>
+    <div>
+      <div class="delivery-card">
+        <h3>Strefa I</h3>
+        <p>5.00zł</p>
+      </div>
+      <div class="delivery-card">
+        <h3>Strefa II</h3>
+        <p>10.00zł</p>
+      </div>
+    </div>
+    <div>
+      <img th:src="@{img/delivery.jpg}" alt="Dostawa">
+    </div>
+  </div>
+</section>
+
+</html>

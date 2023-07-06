@@ -1,9 +1,6 @@
 package pl.wszib.pizzamarket.data.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
@@ -12,10 +9,14 @@ import java.math.BigDecimal;
 public class PizzaEntity {
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private Long id;
+    @Column(name = "name")
     private String name;
-    private BigDecimal price;
+    @Column(name = "ingredients")
     private String ingredients;
+    @Column(name = "price")
+    private BigDecimal price;
 
     public Long getId() {
         return id;

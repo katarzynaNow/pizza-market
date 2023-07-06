@@ -11,11 +11,14 @@ public class PizzaModel {
 
     private String name;
 
-    private BigDecimal price;
-
     private String ingredients;
 
-    public PizzaModel(Long id, String name, BigDecimal price, String ingredients) {
+    private BigDecimal price;
+
+    public PizzaModel() {
+    }
+
+    public PizzaModel(Long id, String name, String ingredients, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -26,15 +29,31 @@ public class PizzaModel {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     public BigDecimal getPrice() {
         return price;
     }
 
-    public String getIngredients() {
-        return ingredients;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

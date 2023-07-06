@@ -9,8 +9,19 @@ public class PizzaMapper {
         return new PizzaModel(
                 entity.getId(),
                 entity.getName(),
-                entity.getPrice(),
-                entity.getIngredients()
+                entity.getIngredients(),
+                entity.getPrice()
+
         );
+    }
+
+    public static PizzaEntity toEntity(PizzaModel model) {
+        final var entity = new PizzaEntity();
+
+        entity.setName(model.getName());
+        entity.setPrice(model.getPrice());
+        entity.setIngredients(model.getIngredients());
+
+        return entity;
     }
 }

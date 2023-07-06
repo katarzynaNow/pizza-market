@@ -108,7 +108,7 @@ a {
     text-align: right;
 }
 
-.input {
+.input, .textbox {
     border: 1px solid var(--primary);
     padding: 15px;
     width: 100%;
@@ -174,4 +174,18 @@ a {
 
 #resto-content .pizza-list-actions {
     margin: 30px 0;
+}
+
+/* Pizza Page */
+
+#pizza-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#pizza-content .form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }

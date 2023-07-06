@@ -1,6 +1,7 @@
 package pl.wszib.pizzamarket.services;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import pl.wszib.pizzamarket.data.entities.PizzaEntity;
 import pl.wszib.pizzamarket.data.repositories.PizzaRepository;
@@ -19,14 +20,22 @@ public class PizzaService {
     }
     
     public List<PizzaModel> findAll(){
-        List<PizzaEntity> entities = pizzaRepository.findAll();
+        final var entities = pizzaRepository.findAll();
+
         return entities.stream()
-                .map(e -> PizzaMapper.toModel(e))//map(e -> PizzaMapper.toModel(e) - replace with method reference
+                .map(PizzaMapper::toModel)//map(e -> PizzaMapper.toModel(e) - replace with method reference
                 .toList();
     }
 
     public PizzaModel getById(Long pizzaId) {
-        PizzaEntity pizzaEntity = pizzaRepository.findById(pizzaId).orElseThrow(EntityNotFoundException::new);
-        return PizzaMapper.toModel(pizzaEntity);
+        final var entity = pizzaRepository.findById(pizzaId)
+                .orElseThrow(EntityNotFoundException::new);
+        return PizzaMapper.toModel(entity);
+    }
+
+    @Transactional
+    public void createPizza(PizzaModel pizzaModel) {
+        final var entity = PizzaMapper.toEntity(pizzaModel);
+        pizzaRepository.save(entity);
     }
 }

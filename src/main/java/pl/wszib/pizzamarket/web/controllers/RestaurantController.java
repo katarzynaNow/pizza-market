@@ -44,4 +44,19 @@ public class RestaurantController {
         return "redirect:/resto-panel";
     }
 
+    @GetMapping("pizza/edit/{pizza-id}")
+    public String editPizzaForm(@PathVariable("pizza-id") Long pizzaId, Model model) {
+        final var pizza = pizzaService.getById(pizzaId);
+        model.addAttribute("pizza", pizza);
+        return "pizzaPage";
+    }
+
+    @PostMapping("pizza/edit/{pizza-id}")
+    public String editPizza(@PathVariable("pizza-id") Long pizzaId,
+                            @ModelAttribute("pizza") PizzaModel pizzaModel){
+        pizzaService.editPizza(pizzaId, pizzaModel);
+
+        return "redirect:/resto-panel";
+    }
+
 }

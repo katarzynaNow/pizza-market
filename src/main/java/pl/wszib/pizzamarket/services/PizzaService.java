@@ -43,4 +43,15 @@ public class PizzaService {
     public void deleteById(Long pizzaId) {
         pizzaRepository.deleteById(pizzaId);
     }
+
+    public void editPizza(Long pizzaId, PizzaModel pizzaModel) {
+        final var entity = pizzaRepository.findById(pizzaId)
+                .orElseThrow(EntityNotFoundException::new);
+
+        entity.setName(pizzaModel.getName());
+        entity.setPrice(pizzaModel.getPrice());
+        entity.setIngredients(pizzaModel.getIngredients());
+
+        pizzaRepository.save(entity);
+    }
 }

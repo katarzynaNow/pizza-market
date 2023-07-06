@@ -159,3 +159,19 @@ a {
 #delivery-content img {
     width: 100%;
 }
+
+/* Resto Panel Page */
+
+#resto-content table {
+    width: 100%;
+}
+
+#resto-content .pizza-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#resto-content .pizza-list-actions {
+    margin: 30px 0;
+}

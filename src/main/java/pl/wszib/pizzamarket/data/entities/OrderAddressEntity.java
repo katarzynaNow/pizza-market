@@ -1,9 +1,6 @@
 package pl.wszib.pizzamarket.data.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="order_addresses")
@@ -11,11 +8,17 @@ public class OrderAddressEntity {
 
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private Long id;
+    @Column(name = "first_name")
     private String firstName;
-    private String LastName;
+    @Column(name = "last_name")
+    private String lastName;
+    @Column(name = "street")
     private String street;
+    @Column(name = "postal_code")
     private String postalCode;
+    @Column(name = "city")
     private String city;
 
     public Long getId() {
@@ -35,11 +38,11 @@ public class OrderAddressEntity {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getStreet() {

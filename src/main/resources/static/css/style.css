@@ -19,6 +19,10 @@ a {
     color: inherit;
 }
 
+table tr > td:last-child {
+    text-align: right;
+}
+
 .container {
     margin: 0 auto;
 }
@@ -51,6 +55,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 20px;
 }
 
 #logo {
@@ -80,6 +85,11 @@ a {
     font-weight: 200;
 }
 
+
+section {
+    margin: 30px 0;
+}
+
 .btn {
     background-color: var(--secondary);
     padding: 15px;
@@ -96,8 +106,16 @@ a {
     font-size: 0.8em;
 }
 
+.input, .textbox {
+    border: 1px solid var(--primary);
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 #home-page-section .container div {
     margin: 50px 0;
+    text-align: center;
 }
 
 #menu-table {
@@ -189,3 +207,31 @@ a {
     flex-direction: row;
     gap: 10px;
 }
+
+/* Order Page */
+
+#order-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#order-content .form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#order-content .form-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#order-content .error-msg {
+    font-size: 0.8em;
+    color: var(--warning);
+    padding: 3px 0;
+}
+
+

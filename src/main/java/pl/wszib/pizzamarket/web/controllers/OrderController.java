@@ -1,7 +1,9 @@
 package pl.wszib.pizzamarket.web.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +24,8 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @GetMapping("/order/{pizzaId}")
-    public String orderForm(@PathVariable Long pizzaId, Model model){
+    @GetMapping("/order/{pizza-id}")
+    public String orderForm(@PathVariable("pizza-id") Long pizzaId, Model model){
         PizzaModel pizza = pizzaService.getById(pizzaId);
 
         model.addAttribute("orderAddress", new OrderAddressModel());
@@ -32,10 +34,20 @@ public class OrderController {
         return "orderPage";
     }
 
-    @PostMapping("/order/{pizzaId}")
-    public String order(@PathVariable Long pizzaId,
-                        @ModelAttribute("orderAddress") OrderAddressModel orderAddressModel){
-        orderService.saveOrder(pizzaId, orderAddressModel);
+    @PostMapping("/order/{pizza-id}")
+    public String order(@PathVariable("pizza-id") Long pizzaId,
+                        @Valid @ModelAttribute("orderAddress") OrderAddressModel orderAddressModel,
+                        BindingResult result, Model model){
+        if(result.hasErrors()){
+            PizzaModel pizza = pizzaService.getById(pizzaId);
+            model.addAttribute("pizza", pizza);
+
+            return "orderPage";
+        }
+
+        final var orderId = orderService.saveOrder(pizzaId, orderAddressModel);
+        model.addAttribute("orderId", orderId);
+
         return "orderConfirmationPage";
     }
 }

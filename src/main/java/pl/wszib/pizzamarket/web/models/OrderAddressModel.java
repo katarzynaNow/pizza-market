@@ -1,10 +1,19 @@
 package pl.wszib.pizzamarket.web.models;
 
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 public class OrderAddressModel {
+    @Size(min=2, max=30)
     private String firstName;
-    private String LastName;
+    @Size(min=2, max=30)
+    private String lastName;
+    @Size(min=2, max=30)
     private String street;
+    @Size(min=6, max=6)
+    @Pattern(regexp = "[0-9]{2}-[0-9]{3}")
     private String postalCode;
+    @Size(min=2, max=30)
     private String city;
 
     public String getFirstName() {
@@ -16,11 +25,11 @@ public class OrderAddressModel {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getStreet() {

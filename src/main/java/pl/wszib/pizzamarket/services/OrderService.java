@@ -23,7 +23,7 @@ public class OrderService {
     }
 
     @Transactional
-    public void saveOrder(Long pizzaId, OrderAddressModel orderAddressModel){
+    public Long saveOrder(Long pizzaId, OrderAddressModel orderAddressModel){
         PizzaEntity pizzaEntity = pizzaRepository.findById(pizzaId)
                 .orElseThrow(EntityNotFoundException::new);
 
@@ -34,6 +34,8 @@ public class OrderService {
         orderEntity.setPrice(pizzaEntity.getPrice());
         orderEntity.setOrderAddress(orderAddressEntity);
 
-        orderRepository.save(orderEntity);
+        final var savedOrder = orderRepository.save(orderEntity);
+
+        return savedOrder.getId();
     }
 }

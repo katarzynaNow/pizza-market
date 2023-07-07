@@ -1,9 +1,6 @@
 package pl.wszib.pizzamarket.data.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="opinions")
@@ -12,7 +9,9 @@ public class OpinionEntity {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(name="author_name")
     private String authorName;
+    @Column(name="opinion_content")
     private String opinionContent;
 
     public Long getId() {

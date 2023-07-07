@@ -10,11 +10,14 @@ public class OrderEntity {
 
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private Long id;
+    @Column(name = "pizza_name")
     private String pizzaName;
+    @Column(name = "price")
     private BigDecimal price;
     @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "order_address_id")
     private OrderAddressEntity orderAddress;
 
     public Long getId() {

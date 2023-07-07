@@ -19,10 +19,6 @@ a {
     color: inherit;
 }
 
-table tr > td:last-child {
-    text-align: right;
-}
-
 .container {
     margin: 0 auto;
 }
@@ -140,6 +136,7 @@ section {
 
 #confirm-text {
     font-size: 3em;
+    text-align: center;
 }
 
 #opinions form div {

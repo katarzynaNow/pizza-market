@@ -16,6 +16,12 @@
 </p>
 
 ### Order page
+<p align="center">
+<img src="src/main/resources/static/img/orderValidationPage.PNG" width="600" height="450" alt='selectPage' />
+</p>
+<p align="center">
+<img src="src/main/resources/static/img/confirmationPage.PNG" width="600" height="120" alt='selectPage' />
+</p>
 
 ### Opinions page
 <p align="center">
